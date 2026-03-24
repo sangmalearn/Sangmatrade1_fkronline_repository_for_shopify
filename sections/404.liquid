@@ -5,19 +5,36 @@
   https://shopify.dev/docs/storefronts/themes/architecture/templates/404
 {% endcomment %}
 
-<h1>{{ '404.title' | t }}</h1>
+<div class="max-w-md">
+  <div class="text-3xl font-bold my-4 text-gray-300">{{'404.title' | t}}</div>
+  <div class="my-4">
+    <div class="mt-4 text-5xt font-semibold tracking-tight text-balance text-gray-500 sm:text-5xl">{{ '404.not_found' | t }}</div>
+  </div>
 
-<p>
-  {{ '404.not_found' | t }}
-</p>
+  <div class="my-4 text-center">    
+      <a href="{{ routes.all_products_collection_url }}" class="text-sm font-semibold text-gray-900 transition duration-300 hover:text-red-500">
+        {{ '404.back_to_shopping' | t }}
+        <span class="inline-block align-middle transition-transfor duration-300 group-hover:translate-x-1" aria-hidden="true">{% render 'icon-right-arrow' %}</span>
+      </a>    
+   
+  </div>
 
-<a href="{{ routes.all_products_collection_url }}">
-  {{ '404.back_to_shopping' | t }}
-</a>
+  <div class="my-4">    
+      <a href="{{ routes.all_products_collection_url }}" class="px-4 py-2 md:uppercase text-base text-sm font-semibold text-white bg-green-600 hover:bg-green-800">
+        {{ '404.back_to_shopping' | t }}
+      </a>    
+   
+  </div>
+</div>
+
+
+
 
 {% schema %}
 {
   "name": "t:general.404",
+
+  "class": "flex items-center justify-center text-center py-7 h-screen",
   "settings": []
 }
 {% endschema %}
